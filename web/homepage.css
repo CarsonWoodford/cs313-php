@@ -24,12 +24,8 @@ div{
 }
 
 img{
-	width:inherit;
+	width:380px;
 }
 .rightside, .leftside{
-	display:table-cell
-}
-
-.row{
-	display:table-row;
+	float:left;
 }
