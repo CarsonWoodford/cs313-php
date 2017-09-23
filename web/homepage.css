@@ -19,8 +19,10 @@ body{
 
 div{
 	height:350px;
+	padding:5px;
 }
 
 .textblock{
 	width:600px;
+	text-align:justify;
 }
