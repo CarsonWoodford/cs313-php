@@ -24,6 +24,7 @@ div{
 }
 
 img{
+	width:350px;
 }
 .rightside, .leftside{
 	float:left;
