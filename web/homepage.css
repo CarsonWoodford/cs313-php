@@ -24,12 +24,16 @@ div{
 }
 
 img{
-	width:330px;
+	width:410px;
 }
 .rightside, .leftside{
+	width:560px;
+}
+
+.leftside, leftimage{
 	float:left;
 }
 
-.rightimage{
-	margin-left:630px;
+.rightimage, rightside{
+	margin-left:10px;
 }
