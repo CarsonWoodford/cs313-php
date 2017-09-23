@@ -29,3 +29,7 @@ img{
 .rightside, .leftside{
 	float:left;
 }
+
+.rightimage{
+	margin-left:600px;
+}
