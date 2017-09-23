@@ -42,3 +42,7 @@ img{
 .rightside{
 	float:right;
 }
+
+.textblock:onhover{
+	font-weight:bold;
+}
