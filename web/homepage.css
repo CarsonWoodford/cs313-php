@@ -23,7 +23,12 @@ div{
 }
 
 img{
-	height:inherit;
+	width:inherit;
 }
-.rightside{
+.rightside, .leftside{
+	display:table-cell
+}
+
+.row{
+	display:table-row;
 }
