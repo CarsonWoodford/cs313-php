@@ -1,10 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
 
-html, body{
-	height:100%;
-}
-
 body{
 	background-color: green;
 }
@@ -18,7 +14,6 @@ body{
 }
 
 div{
-	height:350px;
 	padding:5px;
 }
 
