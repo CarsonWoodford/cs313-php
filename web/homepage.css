@@ -43,6 +43,6 @@ img{
 	float:right;
 }
 
-.textblock:onhover{
+.textblock:hover{
 	font-weight:bold;
 }
