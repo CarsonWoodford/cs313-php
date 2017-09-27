@@ -13,7 +13,7 @@ session_start();
 
  $_SESSION["plutQuan"] = $_POST['plut[]'];
 echo $_SESSION["plutQuan"];
-echo $_POST['plut[]'];
+echo $_POST['pu'];
 echo "hello";
 foreach ($_POST as $param_name => $param_val) {
     echo "Param: $param_name; Value: $param_val<br />\n";
