@@ -13,6 +13,7 @@ session_start();
 
  $_SESSION["plutQuan"] = $_POST['plut[]'];
 echo $_SESSION["plutQuan"];
+echo $_POST['plut[]'];
 echo "hello";
 ?>
 </body>
