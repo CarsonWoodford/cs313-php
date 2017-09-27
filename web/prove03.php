@@ -15,6 +15,9 @@ session_start();
 echo $_SESSION["plutQuan"];
 echo $_POST['plut[]'];
 echo "hello";
+foreach ($_POST as $param_name => $param_val) {
+    echo "Param: $param_name; Value: $param_val<br />\n";
+}
 ?>
 </body>
 
