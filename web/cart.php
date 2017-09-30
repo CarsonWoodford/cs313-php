@@ -15,7 +15,7 @@ if(isset($_SESSION['cart'])){
 		echo "<p>" . $_SESSION['numbers'][$count] . " " . $value . "</p>";
 		$count++;
 	}
-	if(isset($_POST[checkout])){
+	if(isset($_POST[submit])){
 		echo "<form action=\"confirmation.php\" method=\"post\">
 		<input type=\"text\" name=\"address\" />
 		<button type=\"submit\" name=\"purchase\" value=\"placeholder\">Make purchase</button></form>";
