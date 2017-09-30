@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<div id="center">
 <?php
 	session_start();
 	if(isset($_SESSION['cart'])){
@@ -17,7 +18,6 @@
 		else{
 			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += $_POST[number];
 		}
-		echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 	}
 	else {
 		if(isset($_POST[button])){
@@ -25,13 +25,13 @@
 			$_SESSION['cart'] = $my_array;
 			$my_other_array = array($_POST[number]);
 			$_SESSION['numbers'] = $my_other_array;
-			echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
+			//echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 		}
 	}
 ?>
 <form action="cart.php" method="post">
 <div id="header">
-    <input type="image" src="prove03Images/shoppingcart.jpg" />
+    <input type="image" src="prove03Images/shoppingcart.jpg" id="cart" />
 </div>
 </form>
 <form action="itemPage.php" method="post">
@@ -90,5 +90,6 @@
     </tr>
     </table>
 </form>
+</div>
 </body>
 </html>

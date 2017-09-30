@@ -1,8 +1,19 @@
 @charset "UTF-8";
 /* CSS Document */
 .thumbnail{
-	width:100px;
+	width:150px;
 }
 .fullsize{
 	width:300px;
+}
+
+#cart{
+	width:100px;
+}
+
+#center{
+	width:100%;
+	max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
 }
