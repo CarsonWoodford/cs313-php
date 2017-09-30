@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Your Items</title>
+<link rel="stylesheet" type="text/css" href="prove03.css">
 </head>
 
 <body>
@@ -24,7 +25,7 @@ if(isset($_SESSION['cart'])){
 		echo "<option value=\"" . $value. "\">" . $value . "</p>";
 		$count++;
 	}
-	echo "</select></form></td></tr></table>";
+	echo "</select><button type=\"submit\" name=\"remove\" value=\"placeholder\">Remove item</button></form></td></tr></table>";
 	if(isset($_POST[submit])){
 		echo "<form action=\"confirmation.php\" method=\"post\">
 		<input type=\"text\" name=\"address\" />
