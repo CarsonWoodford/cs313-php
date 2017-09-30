@@ -12,7 +12,7 @@
 	echo "<h1>" . $value . "</h1><br>";
 	echo "<form action=\"prove03.php\" method=\"post\">
         <img src=\"modelingimage.png\" class=\"fullsize\"/>
-		<input type=\"text\" name=\"number\" pattern=\"[0-99]\" title=\"Number of items\" /> 
+		<input type=\"number\" name=\"number\" title=\"Number of Items\" />
 		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
 ?>
 </body>
