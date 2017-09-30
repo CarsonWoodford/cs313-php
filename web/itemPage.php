@@ -6,15 +6,9 @@
 </head>
 
 <body>
-<form action="itemPage.php" method="post">
-	<table>
-    <tr>
-    	<td>
-        <img src="modelingimage.png" />
-        <input type="submit" name="button" value="model" />
-    	</td>
-    </tr>
-    </table>
-</form>
+<?php
+	$value = $_POST[button];
+	echo $value;
+?>
 </body>
 </html>
