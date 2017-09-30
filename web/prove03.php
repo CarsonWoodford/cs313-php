@@ -13,11 +13,9 @@
 		if(!in_array($_POST[button], $_SESSION['cart'])){
 			$_SESSION['cart'][] = $_POST[button];
 			$_SESSION['numbers'][] = $_POST[number];
-			//Number will have to change!
 		}
 		else{
 			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += $_POST[number];
-			//Number will have to change!
 		}
 		echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 	}
@@ -26,18 +24,22 @@
 			$my_array = array($_POST[button]);
 			$_SESSION['cart'] = $my_array;
 			$my_other_array = array($_POST[number]);
-			//Number will have to change!
 			$_SESSION['numbers'] = $my_other_array;
 			echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 		}
 	}
 ?>
+<form action="cart.php" method="post">
+
+</form>
 <form action="itemPage.php" method="post">
 	<table>
     <tr>
     	<td>
-        <img src="modelingimage.png" class="thumbnail" />
-        <button type="submit" name="button" value="model">Models</button>
+        <img src="prove03Images/contactjugglingballs.jpg" class="thumbnail" />
+        </td>
+        <td>
+        <button type="submit" name="button" value="ContactJugglingBalls">Purchase</button>
     	</td>
     </tr>
     </table>

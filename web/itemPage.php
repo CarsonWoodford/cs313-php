@@ -11,7 +11,7 @@
 	$value = $_POST[button];
 	echo "<h1>" . $value . "</h1><br>";
 	echo "<form action=\"prove03.php\" method=\"post\">
-        <img src=\"modelingimage.png\" class=\"fullsize\"/>
+        <img src=\"prove03Images/contactjugglingballs.jpg\" class=\"fullsize\"/>
 		<input type=\"number\" name=\"number\" title=\"Number of Items\" />
 		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
 ?>
