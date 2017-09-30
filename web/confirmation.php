@@ -10,11 +10,13 @@
 You have purchased
 <?php
 	session_start();
+	$count = 0;
 	foreach($_SESSION['cart'] as $value){
 		echo "<p>" . $_SESSION['numbers'][$count] . " " . $value . "</p>";
 		$count++;
 	}
-	echo "<br>It will be shipped to $_POST[address]";
+	echo "<br>It will be shipped to" . $_POST[address] . 
+	"<br> Thank you for your purchase!";
 ?>
 </body>
 </html>

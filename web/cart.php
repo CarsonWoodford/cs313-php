@@ -26,13 +26,11 @@ if(isset($_SESSION['cart'])){
 		$count++;
 	}
 	echo "</select><button type=\"submit\" name=\"remove\" value=\"placeholder\">Remove item</button></form></td></tr></table>";
-	if(isset($_POST[submit])){
-		echo "<form action=\"confirmation.php\" method=\"post\">
-		<br>
-		<p>Insert address here</p>
-		<input type=\"text\" name=\"address\" />
-		<button type=\"submit\" name=\"purchase\" value=\"placeholder\">Make purchase</button></form>";
-	}
+	echo "<form action=\"confirmation.php\" method=\"post\">
+	<br>
+	<p>Insert address here</p>
+	<input type=\"text\" name=\"address\" />
+	<button type=\"submit\" name=\"purchase\" value=\"placeholder\">Make purchase</button></form>";
 }
 else{
 	echo "cart is empty. Please add some items and try again!";
