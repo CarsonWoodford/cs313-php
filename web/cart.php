@@ -12,7 +12,7 @@ if(isset($_SESSION['cart'])){
 	$count = 0;
 	echo "In your cart, you have:";
 	foreach($_SESSION['cart'] as $value){
-		echo $_SESSION['number'][count] . " " . $value;
+		echo "<p>" . $_SESSION['numbers'][count] . " " . $value . ."</p>";
 	}
 }
 else{
