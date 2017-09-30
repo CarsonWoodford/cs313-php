@@ -13,25 +13,25 @@
 	$image;
 	switch ($value) {
     case "Contact Juggling Balls":
-        $image = contactjugglingballs.jpg;
+        $image = contactjugglingballs;
         break;
     case "Juggling Balls":
-        $image = jugglingballs.jpg;
+        $image = jugglingballs;
         break;
     case "Juggling Clubs":
-        $image = jugglingclubs.jpg;
+        $image = jugglingclubs;
         break;
 	case "Juggling Knives":
-        $image = jugglingknives.jpg;
+        $image = jugglingknives;
         break;
     case "Pod Poi":
-        $image = podpoi.jpg;
+        $image = podpoi;
         break;
 	}
 	echo "<form action=\"prove03.php\" method=\"post\">
-        <img src=\"prove03Images/" . $image . "\" class=\"fullsize\"/>
+        <img src=\"prove03Images/" . $image . ".jpg\" class=\"fullsize\"/>
 		<input type=\"number\" name=\"number\" title=\"Number of Items\" />
-		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
+		<button type=\"submit\" name=\"button\" value=\"" . $value . "\">Add to Cart</button></form>"
 ?>
 </body>
 </html>
