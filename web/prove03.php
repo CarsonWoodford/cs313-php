@@ -42,6 +42,11 @@
     <input type="image" src="prove03Images/shoppingcart.jpg" id="cart" />
 </div>
 </form>
+<form action="checkout.php" method="post">
+<div id="secondheader">
+	<button type="submit" name="submit" value="submit">Checkout</button>
+</div>
+</form>
 <form action="itemPage.php" method="post">
 	<table>
     <tr>
