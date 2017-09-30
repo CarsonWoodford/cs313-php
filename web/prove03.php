@@ -2,10 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<title>Best Store Ever!</title>
 </head>
 
 <body>
+<?php
+	session_start();
+	if(isset($_SESSION['cart'])){
+	}
+	else {
+	}
+?>
 <form action="itemPage.php" method="post">
 	<table>
     <tr>
