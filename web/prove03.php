@@ -30,7 +30,9 @@
 	}
 ?>
 <form action="cart.php" method="post">
-
+<div id="header">
+    <input type="image" src="prove03Images/shoppingcart.jpg" />
+</div>
 </form>
 <form action="itemPage.php" method="post">
 	<table>
@@ -59,6 +61,18 @@
         <td>
         <button type="submit" name="button" value="Juggling Balls">Purchase</button>
     	</td>
+    </tr>
+    <tr>
+    	<th>
+        Juggling Knives
+        </th>
+        <th>
+        </th>
+        <th>
+        Juggling Clubs
+        </th>
+        <th>
+        </th>
     </tr>
     <tr>
     	<td>
