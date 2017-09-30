@@ -11,6 +11,8 @@
 	if(isset($_SESSION['cart'])){
 	}
 	else {
+		if(isset($_POST[addtocart])){
+		}
 	}
 ?>
 <form action="itemPage.php" method="post">
@@ -18,7 +20,8 @@
     <tr>
     	<td>
         <img src="modelingimage.png" />
-        <input type="submit" name="button" value="model" />
+        <button type="submit" name="button" value="model">Models</button>
+        <!--<input type="submit" name="button" value="model" />-->
     	</td>
     </tr>
     </table>
