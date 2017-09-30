@@ -9,6 +9,15 @@
 
 #cart{
 	width:100px;
+	float:right;
+}
+
+th{
+	margin-top:20px;
+}
+
+button{
+	margin-right:10px;
 }
 
 #center{
