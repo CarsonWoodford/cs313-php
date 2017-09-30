@@ -15,7 +15,10 @@ You have purchased
 		echo "<p>" . $_SESSION['numbers'][$count] . " " . $value . "</p>";
 		$count++;
 	}
-	echo "<br>It will be shipped to" . filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING) . ", " . $_POST[city] . ", " . $_POST[state] .
+	echo "<br>It will be shipped to " 
+	. filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING) . ", " 
+	. filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING) . ", " 
+	. filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING) .
 	".<br> Thank you for your purchase!";
 ?>
 </body>
