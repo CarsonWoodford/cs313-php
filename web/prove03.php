@@ -9,9 +9,17 @@
 <?php
 	session_start();
 	if(isset($_SESSION['cart'])){
+		$_SESSION['cart'][] = $_POST[button];
+		$_SESSION['numbers'][] = 1;
+		echo count($_SESSION['cart']);
 	}
 	else {
-		if(isset($_POST[addtocart])){
+		if(isset($_POST[button])){
+			$my_array = array($_POST[button]);
+			$_SESSION['cart'] = $my_array;
+			$my_other_array = array(1);
+			$_SESSION['numbers'] = $my_other_array;
+			echo count($_SESSION['cart']);
 		}
 	}
 ?>
@@ -21,7 +29,6 @@
     	<td>
         <img src="modelingimage.png" />
         <button type="submit" name="button" value="model">Models</button>
-        <!--<input type="submit" name="button" value="model" />-->
     	</td>
     </tr>
     </table>

@@ -11,7 +11,7 @@
 	echo "<h1>" . $value . "</h1><br>";
 	echo "<form action=\"prove03.php\" method=\"post\">
         <img src=\"modelingimage.png\" />
-        <input type=\"submit\" name=\"button\" value=\"Add to Cart\" /></form>"
+		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
 ?>
 </body>
 </html>
