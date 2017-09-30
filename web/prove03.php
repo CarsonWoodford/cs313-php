@@ -11,12 +11,21 @@
 <?php
 	session_start();
 	if(isset($_SESSION['cart'])){
-		if(!in_array($_POST[button], $_SESSION['cart'])){
-			$_SESSION['cart'][] = $_POST[button];
-			$_SESSION['numbers'][] = $_POST[number];
+		if(isset($_POST[button])){
+			if(!in_array($_POST[button], $_SESSION['cart'])){
+				$_SESSION['cart'][] = $_POST[button];
+				$_SESSION['numbers'][] = $_POST[number];
+			}
+			else{
+				$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += $_POST[number];
+			}
+		}
+		else if(isset($_POST[backbutton])){
+			//Do absolutely nothing! Not with php, anyway.
 		}
 		else{
-			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += $_POST[number];
+			unset($_SESSION['cart']);
+			unset($_SESSION['numbers']);
 		}
 	}
 	else {
@@ -25,7 +34,6 @@
 			$_SESSION['cart'] = $my_array;
 			$my_other_array = array($_POST[number]);
 			$_SESSION['numbers'] = $my_other_array;
-			//echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 		}
 	}
 ?>
