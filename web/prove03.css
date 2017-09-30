@@ -49,3 +49,7 @@ button{
 body{
 	background-color:#b8a787;
 }
+
+select{
+	margin-left:10px;
+}

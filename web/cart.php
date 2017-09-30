@@ -28,8 +28,11 @@ if(isset($_SESSION['cart'])){
 	echo "</select><button type=\"submit\" name=\"remove\" value=\"placeholder\">Remove item</button></form></td></tr></table>";
 	echo "<form action=\"confirmation.php\" method=\"post\">
 	<br>
-	<p>Insert address here</p>
-	<input type=\"text\" name=\"address\" />
+	<p>Ready to make your purchase?</p>
+	<p>Insert address here!</p>
+	<p><input type=\"text\" name=\"address\" />Street and number</p>
+	<p><input type=\"text\" name=\"city\" />City</p>
+	<p><input type=\"text\" name=\"state\" />State</p>
 	<button type=\"submit\" name=\"purchase\" value=\"placeholder\">Make purchase</button></form>";
 }
 else{
