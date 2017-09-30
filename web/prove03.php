@@ -12,11 +12,11 @@
 	if(isset($_SESSION['cart'])){
 		if(!in_array($_POST[button], $_SESSION['cart'])){
 			$_SESSION['cart'][] = $_POST[button];
-			$_SESSION['numbers'][] = 1;
+			$_SESSION['numbers'][] = $_POST[number];
 			//Number will have to change!
 		}
 		else{
-			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += 1;
+			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += $_POST[number];
 			//Number will have to change!
 		}
 		echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
@@ -25,10 +25,10 @@
 		if(isset($_POST[button])){
 			$my_array = array($_POST[button]);
 			$_SESSION['cart'] = $my_array;
-			$my_other_array = array(1);
+			$my_other_array = array($_POST[number]);
 			//Number will have to change!
 			$_SESSION['numbers'] = $my_other_array;
-			echo count($_SESSION['cart']);
+			echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 		}
 	}
 ?>
