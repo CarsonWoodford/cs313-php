@@ -9,12 +9,22 @@
 <?php
 session_start();
 if(isset($_SESSION['cart'])){
+	if(isset($_POST[toremove])){
+		unset($_SESSION['cart'][array_search($_POST[toremove], $_SESSION['cart'])]);
+	}
 	$count = 0;
-	echo "In your cart, you have:";
+	echo "<table><tr><td>In your cart, you have:";
 	foreach($_SESSION['cart'] as $value){
 		echo "<p>" . $_SESSION['numbers'][$count] . " " . $value . "</p>";
 		$count++;
 	}
+	echo "</td><td><form action=\"cart.php\" method=\"post\">";
+	echo "<select name=\"toremove\">";
+	foreach($_SESSION['cart'] as $value){
+		echo "<option value=\"" . $value. "\">" . $value . "</p>";
+		$count++;
+	}
+	echo "</select></form></td></tr></table>";
 	if(isset($_POST[submit])){
 		echo "<form action=\"confirmation.php\" method=\"post\">
 		<input type=\"text\" name=\"address\" />
