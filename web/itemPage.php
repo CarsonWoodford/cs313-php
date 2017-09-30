@@ -10,8 +10,26 @@
 <?php
 	$value = $_POST[button];
 	echo "<h1>" . $value . "</h1><br>";
+	$image;
+	switch ($value) {
+    case "Contact Juggling Balls":
+        $image = contactjugglingballs.jpg;
+        break;
+    case "Juggling Balls":
+        $image = jugglingballs.jpg;
+        break;
+    case "Juggling Clubs":
+        $image = jugglingclubs.jpg;
+        break;
+	case "Juggling Knives":
+        $image = jugglingknives.jpg;
+        break;
+    case "Pod Poi":
+        $image = podpoi.jpg;
+        break;
+	}
 	echo "<form action=\"prove03.php\" method=\"post\">
-        <img src=\"prove03Images/contactjugglingballs.jpg\" class=\"fullsize\"/>
+        <img src=\"prove03Images/" . $image . "\" class=\"fullsize\"/>
 		<input type=\"number\" name=\"number\" title=\"Number of Items\" />
 		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
 ?>

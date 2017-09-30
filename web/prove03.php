@@ -35,11 +35,43 @@
 <form action="itemPage.php" method="post">
 	<table>
     <tr>
+    	<th>
+        Contact Juggling Balls
+        </th>
+        <th>
+        </th>
+        <th>
+        Juggling Balls
+        </th>
+        <th>
+        </th>
+    </tr>
+    <tr>
     	<td>
         <img src="prove03Images/contactjugglingballs.jpg" class="thumbnail" />
         </td>
         <td>
-        <button type="submit" name="button" value="ContactJugglingBalls">Purchase</button>
+        <button type="submit" name="button" value="Contact Juggling Balls">Purchase</button>
+    	</td>
+        <td>
+        <img src="prove03Images/jugglingballs.jpg" class="thumbnail" />
+        </td>
+        <td>
+        <button type="submit" name="button" value="Juggling Balls">Purchase</button>
+    	</td>
+    </tr>
+    <tr>
+    	<td>
+        <img src="prove03Images/jugglingknives.jpg" class="thumbnail" />
+        </td>
+        <td>
+        <button type="submit" name="button" value="Juggling Knives">Purchase</button>
+    	</td>
+        <td>
+        <img src="prove03Images/jugglingclubs.jpg" class="thumbnail" />
+        </td>
+        <td>
+        <button type="submit" name="button" value="Juggling Clubs">Purchase</button>
     	</td>
     </tr>
     </table>
