@@ -12,6 +12,10 @@
 	float:right;
 }
 
+table{
+	margin-left:20px;
+}
+
 th{
 	margin-top:40px;
 }
@@ -32,9 +36,14 @@ button{
 	height:100px;
 	background-color:#cdc1ab;
 }
+
 #secondheader{
 	height:20px;
 	background-color:#cdc1ab;
+}
+
+#checkout{
+	float:right;
 }
 
 body{

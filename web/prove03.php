@@ -42,9 +42,9 @@
     <input type="image" src="prove03Images/shoppingcart.jpg" id="cart" />
 </div>
 </form>
-<form action="checkout.php" method="post">
+<form action="cart.php" method="post">
 <div id="secondheader">
-	<button type="submit" name="submit" value="submit">Checkout</button>
+	<button type="submit" id="checkout" name="submit" value="submit">Checkout</button>
 </div>
 </form>
 <form action="itemPage.php" method="post">

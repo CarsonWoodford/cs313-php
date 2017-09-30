@@ -15,13 +15,18 @@ if(isset($_SESSION['cart'])){
 		echo "<p>" . $_SESSION['numbers'][$count] . " " . $value . "</p>";
 		$count++;
 	}
+	if(isset($_POST[checkout])){
+		echo "<form action=\"confirmation.php\" method=\"post\">
+		<input type=\"text\" name=\"address\" />
+		<button type=\"submit\" name=\"purchase\" value=\"placeholder\">Make purchase</button></form>";
+	}
 }
 else{
 	echo "cart is empty. Please add some items and try again!";
 }
 ?>
 </body>
-<form action="prove03.php">
+<form action="prove03.php" method="post">
 <button type="submit" name="backbutton" value="placeholder">Return to browse</button>
 </form>
 </html>
