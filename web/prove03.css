@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /* CSS Document */
-img{
+.thumbnail{
 	width:300px;
+}
+.fullsize{
+	width:500px;
 }

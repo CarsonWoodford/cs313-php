@@ -36,7 +36,7 @@
 	<table>
     <tr>
     	<td>
-        <img src="modelingimage.png" />
+        <img src="modelingimage.png" class="thumbnail" />
         <button type="submit" name="button" value="model">Models</button>
     	</td>
     </tr>

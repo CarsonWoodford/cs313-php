@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Add to Cart!</title>
+<link rel="stylesheet" type="text/css" href="prove03.css">
 </head>
 
 <body>
@@ -10,7 +11,8 @@
 	$value = $_POST[button];
 	echo "<h1>" . $value . "</h1><br>";
 	echo "<form action=\"prove03.php\" method=\"post\">
-        <img src=\"modelingimage.png\" />
+        <img src=\"modelingimage.png\" class=\"fullsize\"/>
+		<input type=\"text\" name=\"number\" pattern=\"[0-9]\" title=\"Number of items\" /> 
 		<button type=\"submit\" name=\"button\" value=\"model\">Add to Cart</button></form>"
 ?>
 </body>
