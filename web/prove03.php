@@ -3,21 +3,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Best Store Ever!</title>
+<link rel="stylesheet" type="text/css" href="prove03.css">
 </head>
 
 <body>
 <?php
 	session_start();
 	if(isset($_SESSION['cart'])){
-		$_SESSION['cart'][] = $_POST[button];
-		$_SESSION['numbers'][] = 1;
-		echo count($_SESSION['cart']);
+		if(!in_array($_POST[button], $_SESSION['cart'])){
+			$_SESSION['cart'][] = $_POST[button];
+			$_SESSION['numbers'][] = 1;
+			//Number will have to change!
+		}
+		else{
+			$_SESSION['numbers'][array_search($_POST[button], $_SESSION['cart'])] += 1;
+			//Number will have to change!
+		}
+		echo count($_SESSION['cart']) . $_SESSION['numbers'][0];
 	}
 	else {
 		if(isset($_POST[button])){
 			$my_array = array($_POST[button]);
 			$_SESSION['cart'] = $my_array;
 			$my_other_array = array(1);
+			//Number will have to change!
 			$_SESSION['numbers'] = $my_other_array;
 			echo count($_SESSION['cart']);
 		}
