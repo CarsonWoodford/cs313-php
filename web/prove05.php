@@ -23,10 +23,10 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
-		$dbUser = 'postgres';			
-		$dbPassword = 'password';
-		$dbName = 'myServer';
-		$dbHost = 'localhost';
+		$dbUser = 'zntqdmlmwmlyby';			
+		$dbPassword = '978e1e44b338897500fa7a6cb6bd432bdeedc93569fcb350b6e9460fbbb43404';
+		$dbName = '﻿d2m9b8nnjkt40e';
+		$dbHost = 'ec2-23-23-248-162.compute-1.amazonaws.com';
 		$dbPort = '5432';
 		try
 		{
