@@ -61,7 +61,7 @@ session_start();
 		echo '<form action="thread.php" method="post">';
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
- 	 		echo '<p>Topic: <input type="submit" name="submission" value="' . $row['topic'] . '"/> by: ' . $row['username'] . '</p><br/>';
+ 	 		echo '<p>Topic: <input type="submit" name="submission" class="submitlink" value="' . $row['topic'] . '"/> by: ' . $row['username'] . '</p><br/>';
 		}
 		echo '</form>'
     ?>
