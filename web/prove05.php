@@ -45,7 +45,8 @@
 		echo 'Forums:';
 		foreach ($db->query('﻿SELECT t1.topic, t3.username FROM threads AS t1 JOIN posts AS t2 ON t1.threadnumber = t2.threadnumber JOIN accounts AS t3 ON t2.accountnumber = t3.accountnumber;') as $row)
 		{
- 			echo 'Topic:' . $row['t1.topic'];
+ 			echo 'Topic: ';
+			echo $row['t1.topic'];
 			echo ' by:' . $row['t3.username'];
   			echo '<br/>';
 		}
