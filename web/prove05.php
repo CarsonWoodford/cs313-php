@@ -23,17 +23,19 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
-		$db = NULL;
+		$dbUser = 'team05';			
+		$dbPassword = 'team05';
+		$dbName = 'cs313';
+		$dbHost = 'localhost';
+		$dbPort = '5432';
 		try
 		{
- 	 		$user = 'postgres';
-  			$password = 'password';
-  			$db = new PDO('pgsql:host=localhost;dbname=﻿postgres', $user, $password);
+    		$db = new PDO("pgsql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
 		}
 		catch (PDOException $ex)
 		{
-  			echo 'Error!: ' . $ex->getMessage();
-  			die();
+    		echo "$ex";
+    		die();
 		}
 		echo 'testing';
     ?>
