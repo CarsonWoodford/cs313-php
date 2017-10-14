@@ -25,7 +25,7 @@
   	<?php
 		$dbUser = 'postgres';			
 		$dbPassword = 'password';
-		$dbName = 'postgres';
+		$dbName = 'myServer';
 		$dbHost = 'localhost';
 		$dbPort = '5432';
 		try
