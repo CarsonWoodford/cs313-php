@@ -23,9 +23,9 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
-		$dbUser = 'team05';			
-		$dbPassword = 'team05';
-		$dbName = 'cs313';
+		$dbUser = 'postgres';			
+		$dbPassword = 'password';
+		$dbName = 'postgres';
 		$dbHost = 'localhost';
 		$dbPort = '5432';
 		try
