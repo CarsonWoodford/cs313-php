@@ -43,13 +43,17 @@
     		die();
 		}
 		echo 'Forums:';
-		foreach ($db->query('﻿SELECT t1.topic, t3.username FROM threads AS t1 JOIN posts AS t2 ON t1.threadnumber = t2.threadnumber JOIN accounts AS t3 ON t2.accountnumber = t3.accountnumber;') as $row)
+		foreach ($db->query('﻿SELECT topic FROM threads') as $row)
+		{
+			echo 'Topic: ' . $row['t1.topic'];
+		}
+		/*foreach ($db->query('﻿SELECT t1.topic, t3.username FROM threads AS t1 JOIN posts AS t2 ON t1.threadnumber = t2.threadnumber JOIN accounts AS t3 ON t2.accountnumber = t3.accountnumber;') as $row)
 		{
  			echo 'Topic: ';
 			echo $row['t1.topic'];
 			echo ' by:' . $row['t3.username'];
   			echo '<br/>';
-		}
+		}*/
     ?>
     <h1>Changed</h1>
     <p>Be aware that the CSS for these layouts is heavily commented. If you do most of your work in Design view, have a peek at the code to get tips on working with the CSS for the fixed layouts. You can remove these comments before you launch your site. To learn more about the techniques used in these CSS Layouts, read this article at Adobe's Developer Center - <a href="http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>.</p>
