@@ -40,7 +40,7 @@
 		echo 'testing';*/
 		try
 		{
-    		$db = new PDO("pgsql:host=ec2-23-23-248-162.compute-1.amazonaws.com;);
+    		$db = new PDO("pgsql:host=ec2-23-23-248-162.compute-1.amazonaws.com;");
 		}
 		catch (PDOException $ex)
 		{
