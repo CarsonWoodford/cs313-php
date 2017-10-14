@@ -49,10 +49,14 @@
     		echo "$ex";
     		die();
 		}
-		echo 'Forums:';
+		//echo 'Forums:';
+		$statement = $db->query('SELECT topic FROM threads');
+		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+		{
+ 	 	echo 'user: ' . $row['topic'] . '<br/>';
+		}
 		foreach ($db->query('﻿SELECT topic FROM threads') as $row)
 		{
-			echo "Didn't run!";
 			echo 'Topic: ' . $row['.topic'];
 		}
 		echo 'More stuff';
