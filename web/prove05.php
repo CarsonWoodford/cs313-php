@@ -50,7 +50,7 @@
     		die();
 		}
 		echo 'Forums:';
-		foreach ($db->query("﻿SELECT topic FROM threads") as $row)
+		foreach ($db->query('﻿SELECT topic FROM threads') as $row)
 		{
 			echo "Didn't run!";
 			echo 'Topic: ' . $row['.topic'];
