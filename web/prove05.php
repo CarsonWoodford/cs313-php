@@ -23,21 +23,6 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
-		/*$dbUser = 'zntqdmlmwmlyby';			
-		$dbPassword = '978e1e44b338897500fa7a6cb6bd432bdeedc93569fcb350b6e9460fbbb43404';
-		$dbName = '﻿d2m9b8nnjkt40e';
-		$dbHost = 'ec2-23-23-248-162.compute-1.amazonaws.com';
-		$dbPort = '5432';
-		try
-		{
-    		$db = new PDO("pgsql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
-		}
-		catch (PDOException $ex)
-		{
-    		echo "$ex";
-    		die();
-		}
-		echo 'testing';*/
 		$dbUrl = getenv('DATABASE_URL');
 
 		$dbopts = parse_url($dbUrl);
@@ -56,6 +41,12 @@
 		{
     		echo "$ex";
     		die();
+		}
+		foreach ($db->query('SELECT topic, username FROM threads AS t1 JOIN accounts AS t2 ON t1.accountnumber = t2.accountnumber') as $row)
+		{
+ 			echo 'Topic:' . $row['topic'];
+			echo ' by:' . $row['username'];
+  			echo '<br/>';
 		}
     ?>
     <h1>Changed</h1>
