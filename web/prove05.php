@@ -43,7 +43,7 @@
     		die();
 		}
 		echo 'Forums:';
-		foreach ($db->query('SELECT topic, username FROM threads AS t1 JOIN accounts AS t2 ON t1.accountnumber = t2.accountnumber') as $row)
+		foreach ($db->query('﻿SELECT t1.topic, t3.username FROM threads AS t1 JOIN posts AS t2 ON t1.threadnumber = t2.threadnumber JOIN accounts AS t3 ON t2.accountnumber = t3.accountnumber;') as $row)
 		{
  			echo 'Topic:' . $row['topic'];
 			echo ' by:' . $row['username'];
