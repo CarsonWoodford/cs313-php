@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,11 +10,11 @@ session_start();
 
 <div class="container">
   <div class="header"><a href="#"><img src="" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
-    <!-- end .header --></div>
+  </div>
   <div class="sidebar1">
     <ul class="nav">
       <li><a href="#">Home</a></li>
-      <li><a href="#">Assignments</a></li>
+      <li><a href="assignments.html">Assignments</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Settings</a></li>
     </ul>
@@ -49,7 +46,6 @@ session_start();
 		{
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//$_SESSION["db"] = $db; 
 		}
 		catch (PDOException $ex)
 		{

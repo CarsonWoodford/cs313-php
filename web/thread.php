@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,8 +13,8 @@ session_start();
     <!-- end .header --></div>
   <div class="sidebar1">
     <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Assignments</a></li>
+      <li><a href="prove05.php">Home</a></li>
+      <li><a href="assignments.html">Assignments</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Settings</a></li>
     </ul>
@@ -48,8 +45,7 @@ session_start();
 		try
 		{
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//$_SESSION["db"] = $db; 
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 		}
 		catch (PDOException $ex)
 		{
@@ -64,7 +60,6 @@ session_start();
 			echo $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
 		}
-		//echo 'You selected' . $_POST["submission"];
     ?>
     <h2></h2>
     <p></p>
