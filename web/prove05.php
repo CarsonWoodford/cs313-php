@@ -52,14 +52,13 @@
     		echo "$ex";
     		die();
 		}
-		echo '<h1>Forums:</h1><br/><br/>';
+		echo '<h1>Forums:</h1><br/>';
 		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
- 	 	echo 'Topic: <a href="#">' . $row['topic'] . '</a> by: ' . $row['username'] . '<br/>';
+ 	 	echo '<p>Topic: <a href="#">' . $row['topic'] . '</a> by: ' . $row['username'] . '</p><br/>';
 		}
     ?>
-    <p></p>
     <h2></h2>
     <p></p>
     <h3></h3>
