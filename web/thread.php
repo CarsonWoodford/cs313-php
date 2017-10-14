@@ -63,6 +63,7 @@ session_start();
 		{
  	 	echo '<p>Topic: <a href="#">' . $row['topic'] . '</a> by: ' . $row['username'] . '</p><br/>';
 		}
+		echo 'You selected' . $_POST["button"];
     ?>
     <h2></h2>
     <p></p>

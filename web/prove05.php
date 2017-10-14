@@ -58,10 +58,12 @@ session_start();
 		}
 		echo '<h1>Forums:</h1><br/>';
 		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
+		echo '<form action="thread.php" method="post">';
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
- 	 	echo '<p>Topic: <a href="#">' . $row['topic'] . '</a> by: ' . $row['username'] . '</p><br/>';
+ 	 		echo '<p>Topic: <button type="submit" name="button">' . $row['topic'] . '</button> by: ' . $row['username'] . '</p><br/>';
 		}
+		echo '</form>'
     ?>
     <h2></h2>
     <p></p>
