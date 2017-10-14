@@ -23,7 +23,7 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
-		$dbUser = 'zntqdmlmwmlyby';			
+		/*$dbUser = 'zntqdmlmwmlyby';			
 		$dbPassword = '978e1e44b338897500fa7a6cb6bd432bdeedc93569fcb350b6e9460fbbb43404';
 		$dbName = '﻿d2m9b8nnjkt40e';
 		$dbHost = 'ec2-23-23-248-162.compute-1.amazonaws.com';
@@ -37,7 +37,16 @@
     		echo "$ex";
     		die();
 		}
-		echo 'testing';
+		echo 'testing';*/
+		try
+		{
+    		$db = new PDO("pgsql:host=ec2-23-23-248-162.compute-1.amazonaws.com;);
+		}
+		catch (PDOException $ex)
+		{
+    		echo "$ex";
+    		die();
+		}
     ?>
     <h1>Changed</h1>
     <p>Be aware that the CSS for these layouts is heavily commented. If you do most of your work in Design view, have a peek at the code to get tips on working with the CSS for the fixed layouts. You can remove these comments before you launch your site. To learn more about the techniques used in these CSS Layouts, read this article at Adobe's Developer Center - <a href="http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>.</p>
