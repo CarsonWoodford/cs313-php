@@ -58,7 +58,7 @@ session_start();
 		}
 	
 		echo '<h1>' . $_POST["submission"] . '</h1><br/>';
-		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = ' . $_POST["submission"] . ';');
+		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = \'' . $_POST["submission"] . '\';');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
 			echo $row['username'] . ':<br>';
