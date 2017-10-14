@@ -35,7 +35,7 @@
 
 		try
 		{
-		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 		}
 		catch (PDOException $ex)
 		{
@@ -45,8 +45,10 @@
 		echo 'Forums:';
 		foreach ($db->query('﻿SELECT topic FROM threads') as $row)
 		{
+			echo "Didn't run!";
 			echo 'Topic: ' . $row['.topic'];
 		}
+		echo 'More stuff';
 		/*foreach ($db->query('﻿SELECT t1.topic, t3.username FROM threads AS t1 JOIN posts AS t2 ON t1.threadnumber = t2.threadnumber JOIN accounts AS t3 ON t2.accountnumber = t3.accountnumber;') as $row)
 		{
  			echo 'Topic: ';
