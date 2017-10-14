@@ -29,33 +29,7 @@ session_start();
     
   <div class="content">
   	<?php
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
-		
-		$db = null;
-	
-		$dbUrl = getenv('DATABASE_URL');
-
-		$dbopts = parse_url($dbUrl);
-
-		$dbHost = $dbopts["host"];
-		$dbPort = $dbopts["port"];
-		$dbUser = $dbopts["user"];
-		$dbPassword = $dbopts["pass"];
-		$dbName = ltrim($dbopts["path"],'/');
-
-		try
-		{
-			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$_SESSION["db"] = $db; 
-		}
-		catch (PDOException $ex)
-		{
-    		echo "$ex";
-    		die();
-		}
+		$db = $_SESSION["db"];
 		echo '<h1>Forums:</h1><br/>';
 		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
