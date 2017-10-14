@@ -50,10 +50,10 @@
     		die();
 		}
 		//echo 'Forums:';
-		$statement = $db->query('SELECT topic FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber;');
+		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
- 	 	echo 'Topic: ' . $row['topic'] . '<br/>';
+ 	 	echo 'Topic: ' . $row['topic'] . ' by: ' . $row['username'] . '<br/>';
 		}
     ?>
     <h1>Changed</h1>
