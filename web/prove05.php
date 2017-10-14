@@ -28,7 +28,7 @@
 		{
  	 		$user = 'postgres';
   			$password = 'password';
-  			$db = new PDO('pgsql:host=127.0.0.1;dbname=myTestDB', $user, $password);
+  			$db = new PDO('pgsql:host=localhost;dbname=﻿postgres', $user, $password);
 		}
 		catch (PDOException $ex)
 		{
