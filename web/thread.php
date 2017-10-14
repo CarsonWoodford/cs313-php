@@ -58,14 +58,13 @@ session_start();
 		}
 	
 		echo '<h1>' . $_POST["submission"] . '</h1><br/>';
-		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = $_POST["submission"]');
+		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = ' . $_POST["submission"] . ';');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
 			echo $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
- 	 	echo '<p>Topic: <a href="#">' . $row['topic'] . '</a> by: ' . $row['username'] . '</p><br/>';
 		}
-		echo 'You selected' . $_POST["submission"];
+		//echo 'You selected' . $_POST["submission"];
     ?>
     <h2></h2>
     <p></p>
