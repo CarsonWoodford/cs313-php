@@ -23,6 +23,18 @@
     </div><!-- end .sidebar1 -->
   <div class="content">
   	<?php
+		$db = NULL;
+		try
+		{
+ 	 		$user = 'postgres';
+  			$password = 'password';
+  			$db = new PDO('pgsql:host=127.0.0.1;dbname=myTestDB', $user, $password);
+		}
+		catch (PDOException $ex)
+		{
+  			echo 'Error!: ' . $ex->getMessage();
+  			die();
+		}
     ?>
     <h1>Changed</h1>
     <p>Be aware that the CSS for these layouts is heavily commented. If you do most of your work in Design view, have a peek at the code to get tips on working with the CSS for the fixed layouts. You can remove these comments before you launch your site. To learn more about the techniques used in these CSS Layouts, read this article at Adobe's Developer Center - <a href="http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>.</p>
