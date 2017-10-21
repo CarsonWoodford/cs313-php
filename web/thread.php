@@ -69,6 +69,9 @@ session_start();
 			echo $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
 		}
+		echo '<form method="post" action="reply.php">';
+		echo '<button name="replybutton" value="'.$_POST["submission"].'">Reply to thread!</button>';
+		echo '</form>';
     ?>
     <h2></h2>
     <p></p>
