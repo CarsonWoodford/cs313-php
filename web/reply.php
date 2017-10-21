@@ -80,7 +80,7 @@
 			else{
 				echo '<h1>Make a reply</h1><br/>';
 				echo '<form method="post" action="reply.php">';
-				echo '<input type="hidden" name="topic" value="'.$_POST['submission'].'"';
+				echo '<input type="hidden" name="topic" value="'.$_POST['replybutton'].'"';
 				echo '<input type="text" class="lrgtxtbox" name="postcontent">';
 				echo '</form>';
 			}
