@@ -78,7 +78,7 @@
 				{
 					$count+=1;
 				}
-				if(count == 0){
+				if($count == 0){
 					$statement = $db->prepare('INSERT INTO threads (threadnumber, topic) VALUES (DEFAULT, \''.$_POST['threadtitle'].'\');');
 					$statement->execute();
 					$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'),\''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'))');
