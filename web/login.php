@@ -59,7 +59,10 @@ session_start();
 			if(isset($_POST['password']) && !empty($_POST['password'])){
 				$statement = $db->query('SELECT username FROM accounts AS a WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $_POST["password"] . '\'');
 				if(isset($statement) && !empty($statement)){
-					$_SESSION['user'] = $statement;
+					while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+					{
+						$_SESSION['user'] = $row;
+					}
 				}
 			}
 		}
