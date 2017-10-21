@@ -61,16 +61,24 @@ session_start();
     		echo "$ex";
     		die();
 		}
+		
+		$topic;
+		if(isset($_SESSION['topic']) && !empty($_SESSION['topic'])){
+			$topic = $_SESSION['topic'];
+			unset($_SESSION['topic']);
+		} else {
+			$topic = $_POST["submission"];
+		}
 	
-		echo '<h1>' . $_POST["submission"] . '</h1><br/>';
-		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = \'' . $_POST["submission"] . '\';');
+		echo '<h1>' . $topic . '</h1><br/>';
+		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = \'' . $topic . '\';');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
 			echo $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
 		}
 		echo '<form method="post" action="reply.php">';
-		echo '<button name="replybutton" value="'.$_POST["submission"].'">Reply to thread!</button>';
+		echo '<button name="replybutton" value="'.$topic.'">Reply to thread!</button>';
 		echo '</form>';
     ?>
     <h2></h2>
