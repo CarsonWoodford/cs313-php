@@ -69,7 +69,7 @@
     		die();
 		}
 		echo '<h1>Forums:</h1><br/>';
-		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
+		$statement = $db->query('SELECT DISTINCT topic, username, threadnumber FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
 		echo '<form action="thread.php" method="post">';
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
