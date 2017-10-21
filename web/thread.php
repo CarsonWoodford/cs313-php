@@ -12,14 +12,20 @@ session_start();
 <body>
 
 <div class="container">
-  <div class="header"><a href="#"><img src="" alt="LogoPlaceholder" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
+  	<div class="header"><a href="#"><img src="" alt="LogoPlaceholder" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
     <!-- end .header --></div>
-  <div class="sidebar1">
+  	<div class="sidebar1">
     <ul class="nav">
-      <li><a href="prove05.php">Home</a></li>
-      <li><a href="assignments.html">Assignments</a></li>
-      <li><a href="#">Account</a></li>
-      <li><a href="#">Settings</a></li>
+      	<li><a href="prove05.php">Home</a></li>
+      	<li><a href="assignments.html">Assignments</a></li>
+      	<?php
+		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
+			echo '<li><a href="account.php">Account</a></li>';
+		} else{
+			echo '<li><a href="login.php">Account</a></li>';
+		}
+        ?>
+      	<li><a href="#">Settings</a></li>
     </ul>
     <p></p>
     <p></p>

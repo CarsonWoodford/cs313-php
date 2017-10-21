@@ -23,7 +23,7 @@
   	</div>
   	<div class="sidebar1">
     <ul class="nav">
-    	<li><a href="#">Home</a></li>
+    	<li><a href="prove05.php">Home</a></li>
       	<li><a href="assignments.html">Assignments</a></li>
         <?php
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){

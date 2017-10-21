@@ -12,14 +12,20 @@ session_start();
 <body>
 
 <div class="container">
-  <div class="header"><a href="#"><img src="" alt="LogoPlaceholder" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
-  </div>
-  <div class="sidebar1">
-    <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="assignments.html">Assignments</a></li>
-      <li><a href="#">Account</a></li>
-      <li><a href="#">Settings</a></li>
+  	<div class="header"><a href="#"><img src="" alt="LogoPlaceholder" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
+  	</div>
+  	<div class="sidebar1">
+   	<ul class="nav">
+      	<li><a href="prove05.php">Home</a></li>
+      	<li><a href="assignments.html">Assignments</a></li>
+      	<?php
+			if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
+			echo '<li><a href="account.php">Account</a></li>';
+		} else{
+			echo '<li><a href="login.php">Account</a></li>';
+		}
+        ?>
+      	<li><a href="#">Settings</a></li>
     </ul>
     <p></p>
     <p></p>
@@ -27,7 +33,7 @@ session_start();
     
     
     
-  <div class="content">
+  	<div class="content">
   	<?php
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
@@ -57,11 +63,11 @@ session_start();
 		}
 		if(isset($_POST['username']) && !empty($_POST['username'])){
 			if(isset($_POST['password']) && !empty($_POST['password'])){
-				$statement = $db->query('SELECT username FROM accounts AS a WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $_POST["password"] . '\'');
+				$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $_POST["password"] . '\'');
 				if(isset($statement) && !empty($statement)){
 					while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 					{
-						$_SESSION['user'] = $row;
+						$_SESSION['user'] = $row['username'];
 						echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
 						header("Location: prove05.php");
 						die();
