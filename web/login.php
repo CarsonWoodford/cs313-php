@@ -62,6 +62,9 @@ session_start();
 					while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 					{
 						$_SESSION['user'] = $row;
+						echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
+						header("Location: prove05.php");
+						die();
 					}
 				}
 			}
