@@ -13,10 +13,10 @@ session_start();
 
 <div class="container">
   <div class="header"><a href="#"><img src="" alt="LogoPlaceholder" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
-    <!-- end .header --></div>
+  </div>
   <div class="sidebar1">
     <ul class="nav">
-      <li><a href="prove05.php">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="assignments.html">Assignments</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Settings</a></li>
@@ -48,20 +48,32 @@ session_start();
 		try
 		{
 			$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $ex)
 		{
     		echo "$ex";
     		die();
 		}
-	
-		echo '<h1>' . $_POST["submission"] . '</h1><br/>';
-		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = \'' . $_POST["submission"] . '\';');
-		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-		{
-			echo $row['username'] . ':<br>';
-			echo '<p>' . $row['postcontent'] . '</p>';
+		if(isset($_POST['username']) && !empty($_POST['username'])){
+			if(isset($_POST['password']) && !empty($_POST['password'])){
+				$statement = $db->query('SELECT username FROM accounts AS a WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $_POST["password"] . '\'');
+				if(isset($statement) && !empty($statement)){
+					$_SESSION['user'] = $statement;
+				}
+			}
+		}
+		if(!(isset($_SESSION['user']) && !empty($_SESSION['user']))){
+			if(isset($_POST['username'])){
+				echo '<h1>Invalid username/password</h1><br/>';
+			} else {
+				echo '<h1>Please log in</h1><br/>';
+			}
+			echo '<form action="login.php" method="post">';
+			echo '<p>Usersname: <input type="text" name="username"></p>';
+			echo '<p>Password: <input type="text" name="password"></p>';
+			echo '<input type="submit" value="Submit">';
+			echo '</form>';
 		}
     ?>
     <h2></h2>
