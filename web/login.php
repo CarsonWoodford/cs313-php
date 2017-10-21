@@ -77,7 +77,7 @@ session_start();
 			}
 			echo '<form action="login.php" method="post">';
 			echo '<p>Usersname: <input type="text" name="username"></p>';
-			echo '<p>Password: <input type="text" name="password"></p>';
+			echo '<p>Password: <input type="password" name="password"></p>';
 			echo '<input type="submit" value="Submit">';
 			echo '</form>';
 		}

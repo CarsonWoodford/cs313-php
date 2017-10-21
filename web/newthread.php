@@ -68,17 +68,13 @@
     		echo "$ex";
     		die();
 		}
-		echo '<h1>Forums:</h1><br/>';
-		$statement = $db->query('SELECT topic, username FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber');
-		echo '<form action="thread.php" method="post">';
-		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-		{
- 	 		echo '<p>Topic: <input type="submit" name="submission" class="submitlink" value="' . $row['topic'] . '"/> by: ' . $row['username'] . '</p><br/>';
-		}
-		echo '</form>';
+		
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
+			echo '<h1>New Thread:</h1><br/>';
 			echo '<form action="newthread.php" method="post">';
-			echo '<input type="submit" name="newthread" value="'.$_SESSION['user'].'"/>';
+			echo 'Thread title: <input type="text" name="threadtitle"><br>';
+			echo 'Post contents: <input type="text" class="lrgtxtbox" name="postcontents"><br>';
+			echo '<input type="submit">';
 			echo '</form>';
 		}
     ?>
