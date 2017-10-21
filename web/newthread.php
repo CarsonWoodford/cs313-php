@@ -71,14 +71,31 @@
 		
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
 			if(isset($_POST['threadtitle']) && !empty($_POST['threadtitle']) && isset($_POST['postcontent']) && !empty($_POST['postcontent'])){
-				$statement = $db->prepare('INSERT INTO threads (threadnumber, topic) VALUES (DEFAULT, \''.$_POST['threadtitle'].'\');');
-				$statement->execute();
-				$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'),\''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'))');
-				$statement->execute();
-				echo 'Thread created. Click here to go to it.';
-				echo '<form method="post" action="thread.php">';
-				echo '<input type="submit" value="'.$_POST['threadtitle'].'" name="submission">';
-				echo '</form>';
+				//ADD AN IF STATEMENT STOPPING DUPLICATE THREAD TITLES
+				$statement = $db->query('SELECT topic FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'');
+				$count = 0;
+				while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+				{
+					$count+=1;
+				}
+				if(count == 0){
+					$statement = $db->prepare('INSERT INTO threads (threadnumber, topic) VALUES (DEFAULT, \''.$_POST['threadtitle'].'\');');
+					$statement->execute();
+					$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'),\''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'))');
+					$statement->execute();
+					echo 'Thread created. Click here to go to it.';
+					echo '<form method="post" action="thread.php">';
+					echo '<input type="submit" value="'.$_POST['threadtitle'].'" name="submission">';
+					echo '</form>';
+				}
+				else {
+					echo '<h1>Thread title already used</h1><br/>';
+					echo '<form action="newthread.php" method="post">';
+					echo 'Thread title: <input type="text" name="threadtitle"><br>';
+					echo 'Post contents: <input type="text" class="lrgtxtbox" name="postcontent"><br>';
+					echo '<input type="submit">';
+					echo '</form>';
+				}
 			} else {
 				echo '<h1>New Thread:</h1><br/>';
 				echo '<form action="newthread.php" method="post">';
