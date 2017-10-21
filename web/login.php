@@ -20,7 +20,7 @@ session_start();
       	<li><a href="assignments.html">Assignments</a></li>
       	<?php
 			if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-			echo '<li><a href="account.php">Account</a></li>';
+			echo '<li><a href="#p">Account</a></li>';
 		} else{
 			echo '<li><a href="login.php">Account</a></li>';
 		}
