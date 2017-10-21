@@ -73,7 +73,7 @@
 			if(isset($_POST['threadtitle']) && !empty($_POST['threadtitle']) && isset($_POST['postcontent']) && !empty($_POST['postcontent'])){
 				$statement = $db->prepare('INSERT INTO threads (threadnumber, topic) VALUES (DEFAULT, \''.$_POST['threadtitle'].'\');');
 				$statement->execute();
-				$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'),\''.$_POST['postcontent'].'\', SYSDATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'))');
+				$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'),\''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['threadtitle'].'\'))');
 				$statement->execute();
 				echo 'Thread created. Click here to go to it.';
 				echo '<form method="post" action="thread.php">';
