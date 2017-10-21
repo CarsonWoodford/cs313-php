@@ -78,7 +78,7 @@
 		echo '</form>';
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
 			echo '<form action="newthread.php" method="post">';
-			echo '<input type="submit" name="newthread" value="'.$_SESSION['user'].'"/>';
+			echo '<input type="submit" name="newthread" value="Start a new thread!"/>';
 			echo '</form>';
 		}
     ?>

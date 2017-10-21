@@ -109,3 +109,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
   	color: blue;
   	cursor: pointer;
 }
+.lrgtxtbox {
+	width:400px;
+	height:2em;
+}

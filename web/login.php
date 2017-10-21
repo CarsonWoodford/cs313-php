@@ -82,7 +82,7 @@ session_start();
 				echo '<h1>Please log in</h1><br/>';
 			}
 			echo '<form action="login.php" method="post">';
-			echo '<p>Usersname: <input type="text" name="username"></p>';
+			echo '<p>Username: <input type="text" name="username"></p>';
 			echo '<p>Password: <input type="password" name="password"></p>';
 			echo '<input type="submit" value="Submit">';
 			echo '</form>';
