@@ -82,7 +82,7 @@
 				echo '<form method="post" action="reply.php">';
 				echo '<input type="hidden" name="topic" value="'.$_POST['replybutton'].'">';
 				echo '<input type="text" class="lrgtxtbox" name="postcontent">';
-				echo '<input type="submit" value="Post reply!"';
+				echo '<input type="submit" value="Post reply!">';
 				echo '</form>';
 			}
 		}
