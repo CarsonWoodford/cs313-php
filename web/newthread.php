@@ -83,7 +83,7 @@
 				echo '<h1>New Thread:</h1><br/>';
 				echo '<form action="newthread.php" method="post">';
 				echo 'Thread title: <input type="text" name="threadtitle"><br>';
-				echo 'Post contents: <input type="text" class="lrgtxtbox" name="postcontents"><br>';
+				echo 'Post contents: <input type="text" class="lrgtxtbox" name="postcontent"><br>';
 				echo '<input type="submit">';
 				echo '</form>';
 			}
