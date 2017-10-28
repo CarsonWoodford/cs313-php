@@ -66,16 +66,27 @@ session_start();
 		
 		if(isset($_POST['username']) && !empty($_POST['username'])){
 			if(isset($_POST['password']) && !empty($_POST['password'])){
-				$user_password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-				$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $user_password_hash . '\'');
-				if(isset($statement) && !empty($statement)){
-					while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-					{
-						$_SESSION['user'] = $row['username'];
-						echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
-						header("Location: prove05.php");
-						die();
+				$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+				$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+				$user_password_hash = password_hash($password, PASSWORD_BCRYPT);
+				if(isset($_POST['submit'])){
+					$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $username . '\' AND password = \'' . $user_password_hash . '\'');
+					if(isset($statement) && !empty($statement)){
+						while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+						{
+							$_SESSION['user'] = $row['username'];
+							echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
+							header("Location: prove05.php");
+							die();
+						}
 					}
+				}
+				else {
+					$statement = $db->prepare('INSERT INTO accounts (accountnumber, username, password) VALUES (DEFAULT, ' . $username . ',' . $user_password_hash . ')');
+					$statement->execute();
+					$_SESSION['user'] = $username;
+					header("Location: prove05.php");
+					die();
 				}
 			}
 		}
@@ -89,6 +100,7 @@ session_start();
 			echo '<p>Username: <input type="text" name="username"></p>';
 			echo '<p>Password: <input type="password" name="password"></p>';
 			echo '<input type="submit" value="Submit">';
+			echo '<input type="submit" value="Make Account">';
 			echo '</form>';
 		}
     ?>
