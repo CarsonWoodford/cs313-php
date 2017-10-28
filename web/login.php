@@ -28,7 +28,6 @@ session_start();
       	<li><a href="#">Settings</a></li>
     </ul>
     <p></p>
-    <p></p>
     </div>
     
     
