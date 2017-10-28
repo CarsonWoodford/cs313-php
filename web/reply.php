@@ -71,19 +71,39 @@
 		
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
 			if(isset($_POST['postcontent']) && !empty($_POST['postcontent'])){
-				$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'), \''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['topic'].'\'))');
-				$statement->execute();
-				$_SESSION['topic'] = $_POST['topic'];
-				header("Location: thread.php");
-				die();
+				if(isset($_POST['isupdate'])){
+					$statement = $db->prepare('UPDATE posts SET postcontent = \''.$_POST['postcontent'].'\' WHERE postcontent = \''.$_POST['isupdate'].'\'');
+					$statement->execute();
+					$_SESSION['topic'] = $_POST['topic'];
+					header("Location: thread.php");
+					die();
+				}
+				else{
+					$statement = $db->prepare('INSERT INTO posts (postnumber, accountnumber, postcontent, postdate, threadnumber) VALUES (DEFAULT, (SELECT accountnumber FROM accounts WHERE username = \''.$_SESSION['user'].'\'), \''.$_POST['postcontent'].'\', CURRENT_DATE, (SELECT threadnumber FROM threads WHERE topic = \''.$_POST['topic'].'\'))');
+					$statement->execute();
+					$_SESSION['topic'] = $_POST['topic'];
+					header("Location: thread.php");
+					die();
+				}
 			}
 			else{
-				echo '<h1>Make a reply</h1><br/>';
-				echo '<form method="post" action="reply.php">';
-				echo '<input type="hidden" name="topic" value="'.$_POST['replybutton'].'">';
-				echo '<input type="text" class="lrgtxtbox" name="postcontent">';
-				echo '<input type="submit" value="Post reply!">';
-				echo '</form>';
+				if(isset($_POST['edit']) && !empty($_POST['edit'])){
+					echo '<h1>Edit your post!</h1><br/>';
+					echo '<form method="post" action="reply.php">';
+					echo '<input type="hidden" name="topic" value="'.$_POST['replybutton'].'">';
+					echo '<input type="text" class="lrgtxtbox" name="postcontent" value="'.$_POST['edit'].'">';
+					echo '<input type="hidden" name="isupdate" value="'.$_POST['edit'].'">';
+					echo '<input type="submit" value="Post reply!">';
+					echo '</form>';
+				}
+				else{
+					echo '<h1>Make a reply</h1><br/>';
+					echo '<form method="post" action="reply.php">';
+					echo '<input type="hidden" name="topic" value="'.$_POST['replybutton'].'">';
+					echo '<input type="text" class="lrgtxtbox" name="postcontent">';
+					echo '<input type="submit" value="Post reply!">';
+					echo '</form>';
+				}
 			}
 		}
     ?>

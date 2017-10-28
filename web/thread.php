@@ -74,8 +74,14 @@ session_start();
 		$statement = $db->query('SELECT username, postcontent FROM threads AS t JOIN posts AS p ON t.threadnumber = p.threadnumber JOIN accounts AS a ON a.accountnumber = p.accountnumber WHERE t.topic = \'' . $topic . '\';');
 		while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 		{
-			echo $row['username'] . ':<br>';
+			echo ' ' . $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
+			if ($_SESSION['user'] = $row['username']){
+				echo '<form method="post" action="reply.php">';
+				echo '<input type="hidden" name="replybutton" value="$topic">';
+				echo '<button name="edit" value="'.$row['postcontent'].'">Edit</button>';
+				echo '</form>';
+			}
 		}
 		echo '<form method="post" action="reply.php">';
 		echo '<button name="replybutton" value="'.$topic.'">Reply to thread!</button>';
