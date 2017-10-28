@@ -32,7 +32,7 @@
 			echo '<li><a href="login.php">Account</a></li>';
 		}
         ?>
-      	<li><a href="#">Settings</a></li>
+      	<li><a href="logout.php">Signout</a></li>
     </ul>
     <p></p>
     <p></p>
