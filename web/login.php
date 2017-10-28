@@ -61,9 +61,13 @@ session_start();
     		echo "$ex";
     		die();
 		}
+		
+		
+		
 		if(isset($_POST['username']) && !empty($_POST['username'])){
 			if(isset($_POST['password']) && !empty($_POST['password'])){
-				$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $_POST["password"] . '\'');
+				$user_password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+				$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $_POST["username"] . '\' AND password = \'' . $user_password_hash . '\'');
 				if(isset($statement) && !empty($statement)){
 					while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 					{
@@ -88,21 +92,12 @@ session_start();
 			echo '</form>';
 		}
     ?>
-    <h2></h2>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h4></h4>
-    <p></p>
-    </div>
     
+ 
     
-    
-  <div class="footer">
-    <p></p>
-    </div>
-  </div>
+  	<div class="footer">
+  	</div>
+	</div>
+</div>
 </body>
 </html>
