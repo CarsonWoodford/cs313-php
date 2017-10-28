@@ -76,9 +76,9 @@ session_start();
 		{
 			echo ' ' . $row['username'] . ':<br>';
 			echo '<p>' . $row['postcontent'] . '</p>';
-			if ($_SESSION['user'] = $row['username']){
+			if ($_SESSION['user'] == $row['username']){
 				echo '<form method="post" action="reply.php">';
-				echo '<input type="hidden" name="replybutton" value="$topic">';
+				echo '<input type="hidden" name="replybutton" value="'.$topic.'">';
 				echo '<button name="edit" value="'.$row['postcontent'].'">Edit</button>';
 				echo '</form>';
 			}
