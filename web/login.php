@@ -68,7 +68,7 @@ session_start();
 				$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 				$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 				$user_password_hash = password_hash($password, PASSWORD_BCRYPT);
-				if(isset($_POST['submit'])){
+				if(isset($_POST['Submit'])){
 					$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $username . '\' AND password = \'' . $user_password_hash . '\'');
 					if(isset($statement) && !empty($statement)){
 						while ($row = $statement->fetch(PDO::FETCH_ASSOC))
