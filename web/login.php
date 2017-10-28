@@ -69,14 +69,16 @@ session_start();
 				$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 				$user_password_hash = password_hash($password, PASSWORD_BCRYPT);
 				if(isset($_POST['Submit'])){
-					$statement = $db->query('SELECT username FROM accounts WHERE username = \'' . $username . '\' AND password = \'' . $user_password_hash . '\'');
+					$statement = $db->query('SELECT password FROM accounts WHERE username = \'' . $username . '\');');
 					if(isset($statement) && !empty($statement)){
 						while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 						{
-							$_SESSION['user'] = $row['username'];
-							echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
-							header("Location: prove05.php");
-							die();
+							if(password_verify($password, $row['password'])) {
+								$_SESSION['user'] = $username;
+								echo '<h1>Successfully Logged in!</h1><br/>';//probably wont be seen, but just in case the below command takes a moment I threw it in anyway.
+								header("Location: prove05.php");
+								die();
+							}
 						}
 					}
 				}
