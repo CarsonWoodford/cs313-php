@@ -82,7 +82,7 @@ session_start();
 					}
 				}
 				else {
-					$statement = $db->prepare('INSERT INTO accounts (accountnumber, username, password) VALUES (DEFAULT, ' . $username . ',' . $user_password_hash . ')');
+					$statement = $db->prepare('INSERT INTO accounts (accountnumber, username, password) VALUES (DEFAULT, \'' . $username . '\', \'' . $user_password_hash . '\')');
 					$statement->execute();
 					$_SESSION['user'] = $username;
 					header("Location: prove05.php");
